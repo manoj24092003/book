@@ -15,7 +15,7 @@
 .header{
     width: 100%;
     min-height:120vh;
-    background: url(./bg2.jpg);
+    background: url(./images/bg2.jpg);
     background-position: center;
     /* filter: brightness(0.5); */
     background-size: cover;
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 6%;
+    padding: 2rem 1%;
 }
 
 .header .main-header .logo img{
@@ -64,6 +64,21 @@
     background: #fff;
     color: #111117;
 }
+
+/* .searcH{
+    padding: 0.3rem 0.7rem;
+    background:rgb(10, 10, 9);
+    color: #0c0b0b;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: 0,1rem rgb(126, 112, 112),#161313;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.searcH:hover{
+    background: #3b3535;
+    color: #111117;
+} */
 
 .header .home{
     display: grid;
@@ -103,4 +118,17 @@ position:relative;
     background: #ff6600;
     border: 0.1rem solid #ff6600;
     transition: 0.5s;
+}
+
+.header .home .home-content button:hover{
+    background: #fff;
+    border: 0.1rem solid #fff;
+}
+
+#menuBar{
+    font-size: 2.7rem;
+    color: #fff;
+    cursor: pointer;
+    /* position: relative;top: 20px;left: 150px; */
+    display: none;
 }
