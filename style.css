@@ -15,7 +15,7 @@
 .header{
     width: 100%;
     min-height:120vh;
-    background: url(./images/bg2.jpg);
+    background: url(./bg2.jpg);
     background-position: center;
     /* filter: brightness(0.5); */
     background-size: cover;
