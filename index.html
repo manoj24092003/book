@@ -53,5 +53,25 @@
             </div>
 
         </header>
+
+
+        <!--script coding-->
+        <script>
+            let navBar=document.querySelector('.navbar');
+            let menuBar=document.querySelector('#menuBar');
+            let close=document.querySelector('#close');
+
+            menuBar.onclick=()=>{
+                menuBar.classList.toggle('bx-x');
+                navBar.classList.toggle('active');
+            }
+
+            close.onclick=()=>{
+                menuBar.classList.remove('bx-x');
+                navBar.classList.remove('active');
+            }
+
+        </script>
+
     </body>
 </html>
