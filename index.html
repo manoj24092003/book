@@ -43,9 +43,21 @@
                     <h2>দ্বিতীয় ছায়া</h2>
                     <h4>GENRE:<br>Crime,Mystery</h4>
                     <p>Chapter 1 Published</p>
-                    <button class="btn" onclick= "location.href='./dwitiya_chhaya.pdf' ">Read in Bengali</button>
-                    
-                    <button class="btn" onclick= "location.href='./THE_SECOND_SHADOW.pdf' ">Read in English</button>
+                    <button class="btn" onclick= "openPDF1()">Read in Bengali</button>
+                    <button class="btn" onclick= "openPDF2()">Read in English</button>
+
+                    <script>
+                        function openPDF1(){
+                            var pdfUrl='./dwitiya_chhaya.pdf'
+                            window.open(pdfUrl,'_blank')
+                        }
+                    </script>
+                    <script>
+                        function openPDF2(){
+                            var pdfUrl='./THE_SECOND_SHADOW.pdf'
+                            window.open(pdfUrl,'_blank')
+                        }
+                    </script>
 
                 </div>
                 <div class="image">
