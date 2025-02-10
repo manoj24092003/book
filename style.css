@@ -15,7 +15,7 @@
 .header{
     width: 100%;
     min-height:120vh;
-    background: url(./bg1.jpg);
+    background: url(./images/bgdp1.jpg);
     background-position: center;
     /* filter: brightness(0.5); */
     background-size: cover;
@@ -82,12 +82,12 @@
 
 .header .home .home-content h2{
     color: #fff;
-    font-size: 4rem;
+    font-size: 3rem;
     text-transform: uppercase;
 }
 
 .header .home .home-content h4{
-    color: #e2cdbf;
+    color: #111117;
     font-size: 3rem;
 font-weight: 400;
 position:relative;
@@ -95,13 +95,16 @@ position:relative;
 }
 
 .header .home .home-content p{
-    margin: 3rem 0;
-    color: #fff;
+    /* margin: 1rem 0; */
+    color: black;
+    
 }
 
 .header .home .home-content button{
-    background: #ff6600;
-    border: 0.1rem solid #ff6600;
+    
+    background: orange;
+    border: 0.1rem solid orange;
+    margin: 1rem 0;
     transition: 0.5s;
 }
 
@@ -175,5 +178,133 @@ position:relative;
     }
     #menuBar{
         display: block;
+    }
+    .header .header .home-content h2{
+        font-size: 3rem;
+    }
+    .header .header .home-content h4{
+        font-size: 2.2rem;
+    }
+    .header .header .home-content p{
+        margin: 1rem 0;
+       
+    }
+}
+@media(max-width: 550px){
+
+    .header .header .home-content h2{
+        font-size: 2rem;
+    }
+    .header .header .home-content h4{
+        font-size: 1.8rem;
+    }
+    .header{
+        min-height: 100vh;
+    }
+}
+@media(max-width: 365px){
+    .header .header .home-content h2{
+        font-size: 1.6rem;
+    }
+    .header .header .home-content h4{
+        font-size: 1rem;
+    }
+    .header .header .home-content p{
+        margin: 2rem 0;
+    }
+}
+
+/*-footer section-*/
+.footer{
+    background:orange;
+    width: 100%;
+
+}
+.footer .container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 3.5rem;
+}
+
+.footer .container img{
+    width: 200px;
+
+}
+
+.footer .container .col-9 span{
+    color: #fff;
+    font-size: 1rem;
+}
+
+.footer .container .col-9 .inputBox{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.footer .container .col-9 .inputBox input{
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 0.1rem solid orange;
+    text-transform: lowercase;
+}
+
+.footer .container .col-9 .inputBox button{
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+    background: orange;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.footer .col-10{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.footer .col-10 span{
+    color: #fff;
+    font-size: 1rem;
+}
+
+
+.footer .col-10 .social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.footer .col-10 .social i{
+    font-size: 2rem;
+    color: #fff;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.footer .col-10 .social i:hover{
+    color: orangered;
+
+}
+
+@media(max-width:732px){
+    .footer .col-10 .social{
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width:732px){
+    .footer .container .col-9 .inputBox{
+        flex-wrap: wrap;
     }
 }
