@@ -52,10 +52,10 @@
 .btn{
     padding: 0.8rem 2.7rem;
     background:orange;
-    color: #fff;
+    color: black;
     font-size: 1rem;
     text-transform: uppercase;
-    border: 0,1rem solid,#fff;
+    border: 0,1rem solid,red;
     cursor: pointer;
     transition: 0.5s;
 }
