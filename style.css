@@ -88,7 +88,7 @@
 }
 
 .header .home .home-content h4{
-    color: #111117;
+    color: #fff;
     font-size: 3rem;
 font-weight: 400;
 position:relative;
@@ -97,7 +97,7 @@ position:relative;
 
 .header .home .home-content p{
     /* margin: 1rem 0; */
-    color: black;
+    color: #fff;
     
 }
 
