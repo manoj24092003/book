@@ -44,28 +44,18 @@
                     <h4>GENRE:<br>Crime,Mystery</h4>
                     <p>Chapter 1 Published</p>
                     
-                     <button class="btn" onclick="embedIframe()">Read in Bengali</button>
-
-    <div id="iframeContainer"></div>
+                         <button class="btn" onclick="openPopup()">Read in Bengali</button>
 
     <script>
-        function embedIframe() {
-            // Create the iframe element
-            var iframe = document.createElement('iframe');
-            iframe.src = 'https://archive.org/embed/d-t-1_202503';
-            iframe.width = '560';
-            iframe.height = '384';
-            iframe.frameBorder = '0';
-            iframe.allowFullscreen = true;
-            iframe.setAttribute('webkitallowfullscreen', 'true');
-            iframe.setAttribute('mozallowfullscreen', 'true');
-
-            // Append the iframe to the container
-            var container = document.getElementById('iframeContainer');
-            container.innerHTML = ''; // Clear any existing content
-            container.appendChild(iframe);
+        function openPopup() {
+            // Open the link in a pop-up window
+            window.open(
+                'https://archive.org/embed/d-t-1_202503', // URL to open
+                'popupWindow', // Window name
+                'width=560,height=384,resizable=yes,scrollbars=yes,top=100,left=100' // Window settings
+            );
         }
-    </script>       
+    </script>      
                 
 
                 </div>
