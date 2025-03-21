@@ -43,26 +43,30 @@
                     <h2>দ্বিতীয় ছায়া</h2>
                     <h4>GENRE:<br>Crime,Mystery</h4>
                     <p>Chapter 1 Published</p>
-                    <button class="btn" onclick="<iframe src="https://archive.org/embed/d-t-1_202503" width="560" height="384" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>">Read in Bengali</button>
-                   <!-- <button class="btn" onclick= "openPDF2()">In English</button>
+                    
+                     <button class="btn" onclick="embedIframe()">Read in Bengali</button>
 
-                    <script>
-                        function openPDF1(){
-                            var pdfUrl='./dwitiya_chhaya.pdf'
-                            window.open(pdfUrl,'_blank')
-                        }
-                    </script>
-                    <script>
-                        function openPDF2(){
-                            var pdfUrl='./THE_SECOND_SHADOW.pdf'
-                            window.open(pdfUrl,'_blank')
-                        }
-                    </script>-->
-                  
+    <div id="iframeContainer"></div>
 
-                </div>
-                <div class="image">
-                    <!-- <img src="./images/book.png" alt="book"> -->
+    <script>
+        function embedIframe() {
+            // Create the iframe element
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://archive.org/embed/d-t-1_202503';
+            iframe.width = '560';
+            iframe.height = '384';
+            iframe.frameBorder = '0';
+            iframe.allowFullscreen = true;
+            iframe.setAttribute('webkitallowfullscreen', 'true');
+            iframe.setAttribute('mozallowfullscreen', 'true');
+
+            // Append the iframe to the container
+            var container = document.getElementById('iframeContainer');
+            container.innerHTML = ''; // Clear any existing content
+            container.appendChild(iframe);
+        }
+    </script>       
+                
 
                 </div>
 
