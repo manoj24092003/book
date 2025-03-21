@@ -5,17 +5,67 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
         <!--title-->
-        <title>MANOJ | Read My Stories,novels</title>
+        <title>MANOJ | Read My Stories, Novels</title>
 
         <!--customer css file-->
         <link rel="stylesheet" href="./style.css">
         
         <!--boxicon cdn link-->
-        <link rel="stylesheet"
-  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-        <!-- Add this CSS for the modal/pop-up overlay -->
+        <!-- Add this CSS for the modal/pop-up overlay and page design -->
         <style>
+            /* General page styling */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f9;
+                color: #333;
+            }
+
+            .header {
+                background-color: #2c3e50;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .home-content {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .home-content h2 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            .home-content h4 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .home-content p {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn:hover {
+                background-color: #2980b9;
+            }
+
             /* Modal/pop-up overlay */
             .modal {
                 display: none; /* Hidden by default */
@@ -24,7 +74,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+                background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
                 justify-content: center;
                 align-items: center;
                 z-index: 1000; /* Ensure it's on top of other content */
@@ -35,9 +85,7 @@
                 padding: 20px;
                 border-radius: 10px;
                 width: 90%; /* Adjust width for mobile */
-                max-width: 600px; /* Maximum width for larger screens */
-                height: 80%; /* Adjust height for mobile */
-                max-height: 400px; /* Maximum height for larger screens */
+                max-width: 500px; /* Maximum width for larger screens */
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 position: relative;
             }
@@ -49,6 +97,7 @@
                 font-size: 24px;
                 font-weight: bold;
                 cursor: pointer;
+                color: #333;
             }
 
             .close:hover {
@@ -59,6 +108,66 @@
                 width: 100%;
                 height: 100%;
                 border: none;
+                border-radius: 5px;
+            }
+
+            /* Review form styling */
+            .review-form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .review-form input,
+            .review-form textarea {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+
+            .review-form textarea {
+                resize: vertical;
+                height: 100px;
+            }
+
+            .review-form button {
+                padding: 10px;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .review-form button:hover {
+                background-color: #2980b9;
+            }
+
+            /* Footer styling */
+            .footer {
+                background-color: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .footer img {
+                width: 250px;
+                margin-bottom: 10px;
+            }
+
+            .footer .social i {
+                font-size: 1.5rem;
+                margin: 0 10px;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+
+            .footer .social i:hover {
+                color: #3498db;
             }
         </style>
     </head>
@@ -68,14 +177,14 @@
         <header class="header">
             <div class="main-header">
                 <div class="logo">
-                    <img src="./cover3.png" alt="logo" style="width: 250px;object-position: top,left;">
+                    <img src="./cover3.png" alt="logo" style="width: 250px;">
                 </div>
                 <div class="navbar">
-                    <a href="#about">about</a>
-                    <a href="#books">books</a>
-                    <a href="#reviews">reviews</a>
-                    <a href="#posts">posts</a>
-                    <button class="btn">Welcome!</button>
+                    <a href="#about">About</a>
+                    <a href="#books">Books</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#posts">Posts</a>
+                    <button class="btn" onclick="openReviewModal()">Submit Review</button> <!-- Updated button -->
                     <i class='bx bx-x' id="close"></i>
                 </div>
                 <i class='bx bx-menu' id="menuBar"></i>
@@ -83,7 +192,7 @@
             <div class="home">
                 <div class="home-content">
                     <h2>দ্বিতীয় ছায়া</h2>
-                    <h4>GENRE:<br>Crime,Mystery</h4>
+                    <h4>GENRE:<br>Crime, Mystery</h4>
                     <p>Chapter 1 Published</p>
                     
                     <!-- Button to open the pop-up -->
@@ -92,24 +201,64 @@
             </div>
         </header>
 
-        <!-- Modal/pop-up overlay -->
+        <!-- Modal/pop-up overlay for reading the book -->
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closePopup()">&times;</span>
-                <iframe src="https://archive.org/embed/d-t-1_202503" allowfullscreen></iframe>
+                <iframe id="bookFrame" data-src="https://archive.org/embed/d-t-1_202503" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Modal/pop-up overlay for submitting reviews -->
+        <div id="reviewModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeReviewModal()">&times;</span>
+                <h2>Submit Your Review</h2>
+                <form class="review-form" onsubmit="submitReview(event)">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <textarea id="review" placeholder="Write your review here..." required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
 
         <!--script coding-->
         <script>
-            // Function to open the pop-up
+            // Function to open the book pop-up
             function openPopup() {
+                const iframe = document.getElementById('bookFrame');
+                iframe.src = iframe.dataset.src; // Load the iframe only when the pop-up is opened
                 document.getElementById('modal').style.display = 'flex';
             }
 
-            // Function to close the pop-up
+            // Function to close the book pop-up
             function closePopup() {
                 document.getElementById('modal').style.display = 'none';
+            }
+
+            // Function to open the review pop-up
+            function openReviewModal() {
+                document.getElementById('reviewModal').style.display = 'flex';
+            }
+
+            // Function to close the review pop-up
+            function closeReviewModal() {
+                document.getElementById('reviewModal').style.display = 'none';
+            }
+
+            // Function to handle review submission
+            function submitReview(event) {
+                event.preventDefault(); // Prevent form submission
+                const name = document.getElementById('name').value;
+                const review = document.getElementById('review').value;
+
+                // Display the review (you can save it to a database or display it on the page)
+                alert(`Thank you, ${name}! Your review has been submitted:\n\n${review}`);
+
+                // Clear the form and close the modal
+                document.getElementById('name').value = '';
+                document.getElementById('review').value = '';
+                closeReviewModal();
             }
 
             // Navbar toggle functionality
@@ -131,7 +280,7 @@
         <!--footer section-->
         <section class="footer">
             <div class="container">
-                <img src="./cover3.png" alt="logo" style="width: 250px;object-position: top,left;">
+                <img src="./cover3.png" alt="logo" style="width: 250px;">
                 <div class="col-10">
                     <span>&copy;2025 Dwitiya Chhaya. All Rights Reserved by MANOJ</span>
                     <div class="social">
