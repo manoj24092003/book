@@ -14,6 +14,53 @@
         <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
+        <!-- Add this CSS for the modal/pop-up overlay -->
+        <style>
+            /* Modal/pop-up overlay */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+                justify-content: center;
+                align-items: center;
+                z-index: 1000; /* Ensure it's on top of other content */
+            }
+
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                width: 90%; /* Adjust width for mobile */
+                max-width: 600px; /* Maximum width for larger screens */
+                height: 80%; /* Adjust height for mobile */
+                max-height: 400px; /* Maximum height for larger screens */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                position: relative;
+            }
+
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .close:hover {
+                color: red;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        </style>
     </head>
     <body>
         
@@ -21,11 +68,9 @@
         <header class="header">
             <div class="main-header">
                 <div class="logo">
-                    
                     <img src="./cover3.png" alt="logo" style="width: 250px;object-position: top,left;">
                 </div>
                 <div class="navbar">
-                    
                     <a href="#about">about</a>
                     <a href="#books">books</a>
                     <a href="#reviews">reviews</a>
@@ -34,8 +79,6 @@
                     <i class='bx bx-x' id="close"></i>
                 </div>
                 <i class='bx bx-menu' id="menuBar"></i>
-                
-
             </div>
             <div class="home">
                 <div class="home-content">
@@ -43,39 +86,43 @@
                     <h4>GENRE:<br>Crime,Mystery</h4>
                     <p>Chapter 1 Published</p>
                     
-                         <button class="btn" onclick="openPopup()">Read in Bengali</button>
-
-    <script>
-        function openPopup() {
-            // Open the link in a pop-up window
-            window.open(
-                'https://archive.org/embed/d-t-1_202503', // URL to open
-                'popupWindow', // Window name
-                'width=560,height=384,resizable=yes,scrollbars=yes,top=100,left=100' // Window settings
-            );
-        }
-    </script>      
-                
-
+                    <!-- Button to open the pop-up -->
+                    <button class="btn" onclick="openPopup()">Read in Bengali</button>
                 </div>
-
             </div>
-
         </header>
 
+        <!-- Modal/pop-up overlay -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <iframe src="https://archive.org/embed/d-t-1_202503" allowfullscreen></iframe>
+            </div>
+        </div>
 
         <!--script coding-->
         <script>
-            let navBar=document.querySelector('.navbar');
-            let menuBar=document.querySelector('#menuBar');
-            let close=document.querySelector('#close');
+            // Function to open the pop-up
+            function openPopup() {
+                document.getElementById('modal').style.display = 'flex';
+            }
 
-            menuBar.onclick=()=>{
+            // Function to close the pop-up
+            function closePopup() {
+                document.getElementById('modal').style.display = 'none';
+            }
+
+            // Navbar toggle functionality
+            let navBar = document.querySelector('.navbar');
+            let menuBar = document.querySelector('#menuBar');
+            let closeBtn = document.querySelector('#close');
+
+            menuBar.onclick = () => {
                 menuBar.classList.toggle('bx-x');
                 navBar.classList.toggle('active');
             }
 
-            close.onclick=()=>{
+            closeBtn.onclick = () => {
                 menuBar.classList.remove('bx-x');
                 navBar.classList.remove('active');
             }
@@ -84,8 +131,7 @@
         <!--footer section-->
         <section class="footer">
             <div class="container">
-                <img src="./cover3.png" alt="logo". style="width: 250px;object-position: top,left;">
-                
+                <img src="./cover3.png" alt="logo" style="width: 250px;object-position: top,left;">
                 <div class="col-10">
                     <span>&copy;2025 Dwitiya Chhaya. All Rights Reserved by MANOJ</span>
                     <div class="social">
@@ -93,13 +139,8 @@
                         <i class='bx bxl-instagram' ></i>
                         <i class='bx bxl-youtube' ></i>
                     </div>
-            </div>
-           
+                </div>
             </div>
         </section>
-
-
-
-
     </body>
 </html>
