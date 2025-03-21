@@ -202,6 +202,71 @@
                 from { transform: rotate(0deg); }
                 to { transform: rotate(360deg); }
             }
+
+            /* Additional styles for new sections */
+            .section {
+                padding: 50px 20px;
+                text-align: center;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+
+            .section p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+
+            .review-item, .post-item {
+                background-color: white;
+                padding: 15px;
+                margin: 10px 0;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                text-align: left;
+            }
+
+            .delete-btn {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 3px;
+                cursor: pointer;
+                float: right;
+            }
+
+            .delete-btn:hover {
+                background-color: #c0392b;
+            }
+
+            .post-form {
+                margin-top: 20px;
+            }
+
+            .post-form textarea {
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+
+            .post-form button {
+                background-color: #3498db;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .post-form button:hover {
+                background-color: #2980b9;
+            }
         </style>
     </head>
     <body>
@@ -231,6 +296,39 @@
                 </div>
             </div>
         </header>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I'm a writer from Bengal, specializing in crime, mystery, and thriller stories. My narratives delve deep into the human psyche, exploring the darker corners of society and the complexities of human behavior. My stories are crafted to keep you on the edge of your seat, with intricate plots and unexpected twists.</p>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="section">
+            <h2>Books</h2>
+            <p>Explore my collection of gripping crime mystery thrillers:</p>
+            <a href="https://example.com/books" class="btn" target="_blank">View My Books</a>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="section">
+            <h2>Reader Reviews</h2>
+            <div id="reviews-list">
+                <!-- Reviews will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Posts Section -->
+        <section id="posts" class="section">
+            <h2>Updates</h2>
+            <div class="post-form">
+                <textarea id="post-content" placeholder="Write your update here..."></textarea>
+                <button onclick="addPost()">Post Update</button>
+            </div>
+            <div id="posts-list">
+                <!-- Posts will be dynamically added here -->
+            </div>
+        </section>
 
         <!-- Modal/pop-up overlay for reading the book -->
         <div id="modal" class="modal">
@@ -283,13 +381,40 @@
                 const name = document.getElementById('name').value;
                 const review = document.getElementById('review').value;
 
-                // Display the review (you can save it to a database or display it on the page)
-                alert(`Thank you, ${name}! Your review has been submitted:\n\n${review}`);
+                // Display the review
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                reviewItem.innerHTML = `<strong>${name}:</strong> ${review} <button class="delete-btn" onclick="deleteReview(this)">Delete</button>`;
+                document.getElementById('reviews-list').appendChild(reviewItem);
 
                 // Clear the form and close the modal
                 document.getElementById('name').value = '';
                 document.getElementById('review').value = '';
                 closeReviewModal();
+            }
+
+            // Function to delete a review
+            function deleteReview(button) {
+                button.parentElement.remove();
+            }
+
+            // Function to add a post
+            function addPost() {
+                const content = document.getElementById('post-content').value;
+                if (content.trim() === '') return;
+
+                const postItem = document.createElement('div');
+                postItem.className = 'post-item';
+                postItem.innerHTML = `<p>${content}</p> <button class="delete-btn" onclick="deletePost(this)">Delete</button>`;
+                document.getElementById('posts-list').appendChild(postItem);
+
+                // Clear the textarea
+                document.getElementById('post-content').value = '';
+            }
+
+            // Function to delete a post
+            function deletePost(button) {
+                button.parentElement.remove();
             }
 
             // Navbar toggle functionality
