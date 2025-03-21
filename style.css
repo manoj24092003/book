@@ -51,6 +51,7 @@
 .navbar a {
     margin-right: 1.5rem;
     color: black;
+    border: 0.1rem solid orange;
     background: orange;
     font-size: 0.9rem;
     text-transform: uppercase;
