@@ -111,6 +111,7 @@
     border: 0.1rem solid orange;
     margin: 1rem 0;
     transition: 0.3s;
+    position:right;
 }
 
 .home-content button:hover {
